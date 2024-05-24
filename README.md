@@ -1,3 +1,3 @@
 # React-Projects
 
-Author: Tushar Aneja
+Author: Developer Tushar Aneja
