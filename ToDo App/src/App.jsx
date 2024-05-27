@@ -1,10 +1,54 @@
+import React from "react";
+import ToDoForm from "./components/ToDoForm";
+import ToDoItem from "./components/ToDoItem";
+import { ToDoContext, ToDoProvider, useTodo } from "./contexts/index";
+
 function App() {
+  const [todo, setTodo] = React.useState([]);
+
+  const addTodo = (todo) => {
+    setTodo((prev) => [{ id: Date.now(), ...todo }, ...prev]);
+  };
+
+  const deleteTodo = (id) => {
+    setTodo((prev) => prev.filter((todo) => todo.id != id));
+  };
+
+  const updateTodo = (todo, id) => {
+    setTodo((prev) =>
+      prev.map((prevTodo) => (prevTodo.id == id ? todo : prevTodo))
+    );
+  };
+  const toggleTodo = (id) => {
+    setTodo((prev) =>
+      prev.map((todo) =>
+        todo.id == id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   return (
-    <>
-      <h1 className="bg-red-700 text-black text-center text-5xl mx-12 py-5">
-        Vite Setup with Tailwind
-      </h1>
-    </>
+    <ToDoProvider value={{ todo, addTodo, deleteTodo, updateTodo, toggleTodo }}>
+      <div className="bg-[#172842] min-h-screen py-8">
+        <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+          <h1 className="text-2xl font-bold text-center mb-8 mt-2">
+            Manage Your Todos
+          </h1>
+          <div className="mb-4">
+            {/* Todo form goes here */}
+            <ToDoForm />
+          </div>
+          <div className="flex flex-wrap gap-y-3">
+            {/*Loop and Add TodoItem here */}
+            {todo.map((todo) => (
+              <div key={todo.id} className="w-full">
+                <ToDoItem todo={todo} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </ToDoProvider>
   );
 }
 
