@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import ToDoForm from "./components/ToDoForm";
 import ToDoItem from "./components/ToDoItem";
 import { ToDoProvider } from "./contexts/index";
-import { todoList } from "./components/todoList";
 
 function App() {
   const [todo, setTodo] = React.useState([]);
@@ -29,9 +28,16 @@ function App() {
   };
 
   useEffect(() => {
-    const importTodos = todoList;
-    setTodo(todoList);
+    const todos = JSON.parse(localStorage.getItem("todos"));
+
+    if (todos && todos.length > 0) {
+      setTodo(todos);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todo));
+  }, [todo]);
 
   return (
     <ToDoProvider value={{ todo, addTodo, deleteTodo, updateTodo, toggleTodo }}>
