@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ToDoForm from "./components/ToDoForm";
 import ToDoItem from "./components/ToDoItem";
-import { ToDoContext, ToDoProvider, useTodo } from "./contexts/index";
+import { ToDoProvider } from "./contexts/index";
+import { todoList } from "./components/todoList";
 
 function App() {
   const [todo, setTodo] = React.useState([]);
@@ -26,6 +27,11 @@ function App() {
       )
     );
   };
+
+  useEffect(() => {
+    const importTodos = todoList;
+    setTodo(todoList);
+  }, []);
 
   return (
     <ToDoProvider value={{ todo, addTodo, deleteTodo, updateTodo, toggleTodo }}>
