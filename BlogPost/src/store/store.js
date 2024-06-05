@@ -1,7 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import BlogPostreducers from "../features/authSlice";
 
 const store = configureStore({
-  reducer: {},
+  reducer: BlogPostreducers,
 });
 
 export default store;
