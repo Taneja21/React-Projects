@@ -35,8 +35,9 @@ export class AuthService {
     try {
       return this.account.createEmailPasswordSession(email, password);
     } catch (err) {
-      throw err;
+      console.log("appWrite :: login :: error", err);
     }
+    return false;
   }
 
   async getCurrentUser() {
