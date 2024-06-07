@@ -66,6 +66,19 @@ export class DBService {
     }
   }
 
+  async getPost(slug) {
+    try {
+      return await this.database.getDocument(
+        config.appWriteDatabaseId,
+        config.appWriteCollectionId,
+        slug
+      );
+    } catch (error) {
+      console.log("Appwrite serive :: getPost :: error", error);
+      return false;
+    }
+  }
+
   async getPosts() {
     try {
       await this.database.listDocuments(
