@@ -8,7 +8,7 @@ function Home() {
   useEffect(() => {
     dbService.getPosts().then((posts) => {
       if (posts) {
-        setPosts(posts.document);
+        setPosts(posts.documents);
       }
     });
   }, []);

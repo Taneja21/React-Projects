@@ -5,9 +5,9 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import AuthLayout from "./components/authLayout.jsx";
+
+import { Login, AuthLayout } from "./components/index.js";
 import {
-  Login,
   Signup,
   Home,
   AllPosts,

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input, Button, Logo } from "./index";
 import authService from "../appwrite/auth";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { login } from "../features/authSlice";
 
@@ -14,8 +14,10 @@ function SignUp() {
 
   const singUp = async (data) => {
     setError("");
+    console.log(data);
     try {
       const session = await authService.createAccount(data);
+      console.log("Sission is :: ", session);
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) {

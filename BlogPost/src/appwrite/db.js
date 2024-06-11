@@ -1,5 +1,5 @@
 import config from "../config/config";
-import { Databases, Client, Storage, ID } from "appwrite";
+import { Databases, Client, Storage, ID, Query } from "appwrite";
 
 export class DBService {
   client = new Client();
@@ -79,14 +79,13 @@ export class DBService {
     }
   }
 
-  async getPosts() {
+  async getPosts(queries = [Query.equal("status", "active")]) {
     try {
-      await this.database.listDocuments(
+      return await this.database.listDocuments(
         config.appWriteDatabaseId,
         config.appWriteCollectionId,
-        [Query.equal("status", "active")]
+        queries
       );
-      return true;
     } catch (err) {
       console.log("appWrite :: getPosts :: error", err);
       return false;

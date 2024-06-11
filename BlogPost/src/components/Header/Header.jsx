@@ -1,6 +1,5 @@
 import React from "react";
 import { LogoutBtn, Logo, Container } from "../index";
-import authService from "../../appwrite/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 

@@ -4,7 +4,7 @@ import Logo from "./Logo";
 import Container from "./container/Container";
 import LogoutBtn from "./Header/LogoutBtn";
 import RTE from "./RTE";
-import authLayout from "./authLayout";
+import AuthLayout from "./AuthLayout";
 import Button from "./Button";
 import Input from "./Input";
 import Login from "./Login";
@@ -20,7 +20,7 @@ export {
   Container,
   LogoutBtn,
   RTE,
-  authLayout,
+  AuthLayout,
   Button,
   Input,
   Login,
