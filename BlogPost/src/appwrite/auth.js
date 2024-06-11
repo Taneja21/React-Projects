@@ -22,13 +22,17 @@ export class AuthService {
         name
       );
       if (userAccount) {
-        return this.login(email, password);
+        const loginData = { email: email, password: password };
+
+        return this.login(loginData);
       } else {
         return userAccount;
       }
     } catch (err) {
-      throw err;
+      console.log("CreateAccount Error :: ", err);
     }
+
+    return null;
   }
 
   async login({ email, password }) {
@@ -37,6 +41,7 @@ export class AuthService {
     } catch (err) {
       console.log("appWrite :: login :: error", err);
     }
+
     return false;
   }
 

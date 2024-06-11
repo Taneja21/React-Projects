@@ -17,7 +17,7 @@ function SignUp() {
     console.log(data);
     try {
       const session = await authService.createAccount(data);
-      console.log("Sission is :: ", session);
+      console.log("Session is :: ", session);
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) {
@@ -75,6 +75,7 @@ function SignUp() {
                 },
               })}
             />
+
             <Input
               label="Password: "
               type="password"
