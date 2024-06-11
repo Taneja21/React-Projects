@@ -21,7 +21,7 @@ function SignUp() {
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) {
-          dispatch(login(userData));
+          dispatch(login({ userData }));
           navigate("/");
         }
       }
