@@ -8,24 +8,26 @@ import parse from "html-react-parser";
 function Post() {
   const [post, setPost] = useState(null);
   const { slug } = useParams();
+
   const navigate = useNavigate();
 
   const userData = useSelector((state) => state.auth.userData);
 
-  isAuthor = post && userData ? post.userId === userData.$id : false;
-
   useEffect(() => {
     if (slug) {
-      dbService.getPost(slug).then((post) => {
-        if (post) {
-          setPost(post);
-          navigate("/");
+      dbService.getPost(slug).then((blog) => {
+        if (blog) {
+          setPost(blog);
         } else {
+          console.log("Direct Navigate");
           navigate("/");
         }
       });
     }
   }, [slug, navigate]);
+
+  const isAuthor = post && userData ? post.userId === userData.$id : false;
+  console.log("is Author ::", isAuthor);
 
   const deletePost = () => {
     dbService.deletePost(post.$id).then((status) => {

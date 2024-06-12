@@ -11,7 +11,7 @@ function PostForm({ post }) {
       defaultValues: {
         title: post?.title || "",
         content: post?.content || "",
-        slug: post?.slug || "",
+        slug: post?.$id || "",
         status: post?.status || "active",
       },
     });

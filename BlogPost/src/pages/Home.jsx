@@ -8,11 +8,11 @@ function Home() {
   const authStore = useSelector((state) => state.auth.status);
 
   const userStore = useSelector((state) => state.auth.userData);
+  console.log(posts);
 
   useEffect(() => {
     dbService.getPosts().then((posts) => {
       if (posts) {
-        console.log(posts);
         setPosts(posts.documents);
       }
     });
@@ -55,10 +55,17 @@ function Home() {
     <div className="w-full py-8">
       <Container>
         <div className="flex flex-wrap">
+          <div className="p-2 w-full">
+            <h1 className="text-2xl font-bold hover:text-gray-500">
+              Welcome {userStore.name}
+            </h1>
+          </div>
           {posts.map((post) => {
-            <div key={post.$id} className="p-2 w-1/4">
-              <PostCard {...post} />
-            </div>;
+            return (
+              <div key={post.$id} className="p-2 w-1/4">
+                <PostCard {...post} />
+              </div>
+            );
           })}
         </div>
       </Container>

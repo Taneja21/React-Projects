@@ -119,7 +119,7 @@ export class DBService {
     try {
       return this.storage.getFilePreview(config.appWriteBucketId, fileId);
     } catch (err) {
-      console.log("appWrite :: deleteFile :: error", err);
+      console.log("appWrite :: filePreviewFile :: error", err);
     }
   }
 }
