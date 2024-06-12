@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Button, Login, Select, RTE, Input } from "../index";
+import React, { useEffect, useCallback } from "react";
+import { Button, Select, RTE, Input } from "../index";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -35,16 +35,19 @@ function PostForm({ post }) {
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
+      console.log(data);
       const file = await dbService.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;
+
         data.image = fileId;
+
         const dbPost = await dbService.createPost({
           ...data,
           userId: userData.$id,
         });
         if (dbPost) {
-          navigate(`/posts/${dbPost.$id}`);
+          navigate(`/post/${dbPost.$id}`);
         }
       }
     }
@@ -52,11 +55,7 @@ function PostForm({ post }) {
 
   const slugTransform = useCallback((value) => {
     if (value && typeof value === "string") {
-      return value
-        .trim()
-        .toLowerCase()
-        .replace(/^[a-zA-Z\d\s]+/g, "-")
-        .replace(/\s/g, "-");
+      return value.trim().toLowerCase().replace(/\s/g, "-");
     }
 
     return "";

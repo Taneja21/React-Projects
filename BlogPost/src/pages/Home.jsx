@@ -12,13 +12,13 @@ function Home() {
   useEffect(() => {
     dbService.getPosts().then((posts) => {
       if (posts) {
+        console.log(posts);
         setPosts(posts.documents);
       }
     });
   }, []);
 
   if (!authStore) {
-    console.log({ userStore, authStore });
     return (
       <div className="w-full py-8 mt-4 text-center">
         <Container>
@@ -35,7 +35,6 @@ function Home() {
   }
 
   if (posts.length === 0) {
-    console.log({ userStore, authStore });
     return (
       <div className="w-full py-8 mt-4 text-center">
         <Container>
