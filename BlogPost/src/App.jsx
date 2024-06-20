@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import authService from "./appwrite/auth";
@@ -24,12 +23,16 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-      <div className="w-full block">
+    <div className="flex flex-col h-screen">
+      <div className="basis-2/12">
         <Header />
+      </div>
+      <div className="basis-9/12">
         <main>
           <Outlet />
         </main>
+      </div>
+      <div className="basis-1/12">
         <Footer />
       </div>
     </div>

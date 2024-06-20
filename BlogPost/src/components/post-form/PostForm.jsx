@@ -20,6 +20,7 @@ function PostForm({ post }) {
   const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
+    console.log("Data is ::", data);
     if (post) {
       const file = data.image[0]
         ? await dbService.uploadFile(data.image[0])
@@ -45,6 +46,7 @@ function PostForm({ post }) {
         const dbPost = await dbService.createPost({
           ...data,
           userId: userData.$id,
+          userName: userData.name,
         });
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);

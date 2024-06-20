@@ -16,6 +16,7 @@ export class DBService {
   }
 
   async createPost({ title, image, content, status, userId, slug }) {
+    // console.log("Useranem is ::", userName);
     try {
       return await this.database.createDocument(
         config.appWriteDatabaseId,

@@ -29,20 +29,16 @@ export class AuthService {
         return userAccount;
       }
     } catch (err) {
-      console.log("CreateAccount Error :: ", err);
+      throw err;
     }
-
-    return null;
   }
 
   async login({ email, password }) {
     try {
       return this.account.createEmailPasswordSession(email, password);
     } catch (err) {
-      console.log("appWrite :: login :: error", err);
+      throw err;
     }
-
-    return false;
   }
 
   async getCurrentUser() {

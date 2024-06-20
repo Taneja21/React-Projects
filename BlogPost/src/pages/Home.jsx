@@ -8,12 +8,14 @@ function Home() {
   const authStore = useSelector((state) => state.auth.status);
 
   const userStore = useSelector((state) => state.auth.userData);
-  console.log(posts);
 
   useEffect(() => {
     dbService.getPosts().then((posts) => {
       if (posts) {
-        setPosts(posts.documents);
+        const userPosts = posts.documents.filter(
+          (post) => post.userId === userStore.$id
+        );
+        setPosts(userPosts);
       }
     });
   }, []);
