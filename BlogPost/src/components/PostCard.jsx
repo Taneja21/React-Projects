@@ -3,7 +3,7 @@ import dbService from "../appwrite/db";
 import { Link } from "react-router-dom";
 import parse from "html-react-parser";
 
-function PostCard({ $id, title, image, userName, content }) {
+function PostCard({ $id, title, image, name }) {
   return (
     <Link to={`/post/${$id}`}>
       <article className="group h-full overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 shadow-lg">
@@ -16,15 +16,15 @@ function PostCard({ $id, title, image, userName, content }) {
           <h2 className="title-font mb-3 inline-block cursor-pointer text-xl capitali font-extrabold tracking-wide text-gray-800">
             {title}
           </h2>
-          <p className="line-clamp-6 mb-3 cursor-pointer overflow-hidden leading-relaxed text-gray-500">
+          {/* <p className="line-clamp-6 mb-3 cursor-pointer overflow-hidden leading-relaxed text-gray-500">
             {parse(content)}
-          </p>
+          </p> */}
         </div>
-        {/* <div className="flex flex-wrap items-center justify-between px-6 pt-1 pb-4">
+        <div className="flex flex-wrap items-center justify-between px-6 pt-1 pb-4">
           <div className="flex flex-wrap text-sm text-gray-500">
-            <span className="mr-1">USERaNEM</span>
+            <span className="mr-1">{name}</span>
           </div>
-        </div> */}
+        </div>
       </article>
     </Link>
   );

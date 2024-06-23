@@ -15,7 +15,7 @@ export class DBService {
     this.storage = new Storage(this.client);
   }
 
-  async createPost({ title, image, content, status, userId, slug }) {
+  async createPost({ title, image, content, status, userId, slug, name }) {
     // console.log("Useranem is ::", userName);
     try {
       return await this.database.createDocument(
@@ -28,10 +28,11 @@ export class DBService {
           content,
           status,
           userId,
+          name,
         }
       );
     } catch (err) {
-      console.log("appWrite :: createPost :: error", err);
+      throw err;
     }
   }
 

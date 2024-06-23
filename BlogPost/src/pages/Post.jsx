@@ -64,6 +64,9 @@ function Post() {
           <h1 className="text-2xl font-bold">{post.title}</h1>
         </div>
         <div className="browser-css">{parse(post.content)}</div>
+        <div className="flex flex-wrap text-sm text-gray-500 mt-24">
+          <span className="mr-1">{post.name}</span>
+        </div>
       </Container>
     </div>
   ) : null;

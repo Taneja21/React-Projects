@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Button, Select, RTE, Input } from "../index";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -17,10 +17,11 @@ function PostForm({ post }) {
     });
 
   const navigate = useNavigate();
+  const [error, SetError] = useState("");
   const userData = useSelector((state) => state.auth.userData);
+  console.log("User Data from Store is ::", userData);
 
   const submit = async (data) => {
-    console.log("Data is ::", data);
     if (post) {
       const file = data.image[0]
         ? await dbService.uploadFile(data.image[0])
@@ -36,20 +37,26 @@ function PostForm({ post }) {
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
-      console.log(data);
+      console.log("Data is ::", data);
       const file = await dbService.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;
 
         data.image = fileId;
 
-        const dbPost = await dbService.createPost({
-          ...data,
-          userId: userData.$id,
-          userName: userData.name,
-        });
-        if (dbPost) {
-          navigate(`/post/${dbPost.$id}`);
+        try {
+          const dbPost = await dbService.createPost({
+            ...data,
+            userId: userData.$id,
+            name: userData.name,
+          });
+
+          if (dbPost) {
+            navigate(`/post/${dbPost.$id}`);
+          }
+        } catch (err) {
+          console.log("Error is ::", err.message);
+          SetError(err.message);
         }
       }
     }
@@ -81,9 +88,10 @@ function PostForm({ post }) {
         <Input
           label="Title: "
           placeholder="Title"
-          className="mb-4"
+          className="mb-2"
           {...register("title", { required: true })}
         />
+        {error && <p className="text-red-600 mt-1 ">{error}</p>}
         <Input
           label="Slug: "
           placeholder="Slug"
