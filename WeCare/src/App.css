@@ -1,0 +1,17 @@
+.container-app {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-app-top {
+  flex-basis: 10vh;
+}
+
+.container-app-middle {
+  flex-basis: 80vh;
+}
+
+.container-app-bottom {
+  flex-basis: 10vh;
+  align-content: baseline;
+}

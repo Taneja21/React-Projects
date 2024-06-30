@@ -1,0 +1,16 @@
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-footer-left {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.container-footer-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}

@@ -1,0 +1,16 @@
+.container-header {
+  display: flex;
+  justify-content: space-between;
+}
+.container-header-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.container-header-middle {
+  display: flex;
+  justify-content: center;
+}
+.container-header-right {
+  display: flex;
+  justify-content: flex-end;
+}
