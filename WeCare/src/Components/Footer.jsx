@@ -3,16 +3,14 @@ import "../css/Footer.css";
 
 function Footer() {
   return (
-    <div className="container-footer">
-      <div className="container-footer-left">
-        <p>logo</p>
-        <h1>Footer</h1>
+    <div className="box-footer">
+      <div className="box-footer-left">
+        <p style={{ color: "#37B7C3" }}>© 2024 WeC@re. All rights reserved.</p>
       </div>
-      <div className="container-footer-right">
-        <a>About</a>
-        <a>Contact US</a>
-        <a>Facebook</a>
-        <a>Instagram</a>
+      <div className="box-footer-right">
+        <button>About US</button>
+        <button>Privacy Policy</button>
+        <button>Facebook</button>
       </div>
     </div>
   );

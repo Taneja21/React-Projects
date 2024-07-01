@@ -1,0 +1,24 @@
+.box-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.box-layout-top {
+  flex-basis: 7.5vh;
+  background-color: #071952;
+}
+
+.box-layout-middle {
+  flex-basis: 87.5vh;
+  background-color: #ebf4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-layout-bottom {
+  flex-basis: 5vh;
+  background-color: #071952;
+}

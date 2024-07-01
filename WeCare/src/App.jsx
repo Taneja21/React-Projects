@@ -1,19 +1,19 @@
-import { useState } from "react";
+import "./css/App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
-import { Header, Footer } from "./Components/index";
-import "./App.css";
 
 function App() {
   return (
     <>
-      <div className="container-app">
-        <div className="container-app-top">
+      <div className="box-layout">
+        <div className="box-layout-top">
           <Header />
         </div>
-        <div className="container-app-middle">
+        <div className="box-layout-middle">
           <Outlet />
         </div>
-        <div className="container-app-bottom">
+        <div className="box-layout-bottom">
           <Footer />
         </div>
       </div>

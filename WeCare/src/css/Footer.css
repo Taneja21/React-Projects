@@ -1,16 +1,18 @@
-.container-footer {
+.box-footer {
   display: flex;
   justify-content: space-between;
 }
 
-.container-footer-left {
+.box-footer-left {
   display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 10px;
 }
 
-.container-footer-right {
+.box-footer-right {
   display: flex;
-  justify-content: flex-end;
-  gap: 2rem;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 10px;
 }
