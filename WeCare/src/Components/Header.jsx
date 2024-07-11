@@ -2,8 +2,17 @@ import React from "react";
 import "../css/Header.css";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const storeStatus = useSelector((state) => state.authentication.status);
+  console.log("status ::", storeStatus);
+
+  const navItems = [
+    { name: "Home", route: "/", active: storeStatus },
+    { name: "Educators", route: "educators", active: storeStatus },
+    { name: "courses", route: "courses", active: storeStatus },
+  ];
   return (
     <div className="box-header">
       <div className="box-header-left">
@@ -14,7 +23,15 @@ function Header() {
         <h2 style={{ color: "#37B7C3", fontWeight: "bolder" }}>WeC@re</h2>
       </div>
       <div className="box-header-middle">
-        <Link to="/">
+        {navItems.map((item) =>
+          item.active ? (
+            <Link key={item.name} to={item.route}>
+              <button>{item.name}</button>
+            </Link>
+          ) : null
+        )}
+
+        {/* <Link to="/">
           <button>Home</button>
         </Link>
         <Link to="educators">
@@ -22,7 +39,7 @@ function Header() {
         </Link>
         <Link to="courses">
           <button>Courses</button>
-        </Link>
+        </Link> */}
       </div>
       <div className="box-header-right">
         <Link to="login">

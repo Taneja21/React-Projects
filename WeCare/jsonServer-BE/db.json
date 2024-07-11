@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Tushar",
+      "email": "tushar@tushar.com",
+      "password": "tushar123",
+      "phone": "9996159991",
+      "pincode": "112445",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "country": "India",
+      "dob": "06/25/24",
+      "gender": "male"
+    },
+    {
+      "id": 2,
+      "name": "Rajat",
+      "email": "rajat@rajat.com",
+      "password": "rajat123",
+      "phone": "9996159992",
+      "pincode": "123456",
+      "city": "Gurugram",
+      "state": "Haryana",
+      "country": "India",
+      "dob": "01/25/24",
+      "gender": "male"
+    },
+    {
+      "id": 1,
+      "name": "Naman",
+      "email": "naman@naman.com",
+      "password": "naman123",
+      "phone": "9996159993",
+      "pincode": "990876",
+      "city": "Mohali",
+      "state": "Punjab",
+      "country": "India",
+      "dob": "04/01/22",
+      "gender": "male"
+    }
+  ]
+}
