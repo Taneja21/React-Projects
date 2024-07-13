@@ -1,0 +1,48 @@
+.box-home {
+  height: 40rem;
+  width: 70rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.box-home-form {
+  background-color: antiquewhite;
+  border-radius: 5%;
+  height: 30rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-form-top {
+  flex-basis: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-form-middle {
+  flex-basis: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.home-form-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-login-button {
+  padding: 8px 20px;
+  border-radius: 10%;
+  background-color: rgb(119, 219, 119);
+  font-weight: bolder;
+}
+
+.home-login-button:hover {
+  background-color: rgb(9, 236, 58);
+}

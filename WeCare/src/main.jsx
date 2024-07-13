@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home, Login, SignUp } from "./pages/index.js";
+import { Home, InstrcutorLogin, LearnerLogin, SignUp } from "./pages/index.js";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 
@@ -13,8 +13,12 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "login",
-        element: <Login />,
+        path: "instructorlogin",
+        element: <InstrcutorLogin />,
+      },
+      {
+        path: "learnerlogin",
+        element: <LearnerLogin />,
       },
       {
         path: "/",

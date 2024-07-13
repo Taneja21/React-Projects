@@ -1,5 +1,5 @@
 {
-  "users": [
+  "learners": [
     {
       "id": 1,
       "name": "Tushar",
@@ -11,7 +11,8 @@
       "state": "Delhi",
       "country": "India",
       "dob": "06/25/24",
-      "gender": "male"
+      "gender": "male",
+      "coursesPurchased": [1, 2]
     },
     {
       "id": 2,
@@ -24,7 +25,8 @@
       "state": "Haryana",
       "country": "India",
       "dob": "01/25/24",
-      "gender": "male"
+      "gender": "male",
+      "coursesPurchased": [2]
     },
     {
       "id": 1,
@@ -37,7 +39,63 @@
       "state": "Punjab",
       "country": "India",
       "dob": "04/01/22",
-      "gender": "male"
+      "gender": "male",
+      "coursesPurchased": [2, 3]
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "name": "Varnika Aneja",
+      "email": "varnika@varnika.com",
+      "password": "varnika123",
+      "phone": "9996158881",
+      "gender": "female",
+      "domain": ["Finance", "Psycology"]
+    },
+    {
+      "id": 2,
+      "name": "Vikas Divyakirti",
+      "email": "vikas@vikas.com",
+      "password": "vikas123",
+      "phone": "9996158891",
+      "gender": "male",
+      "domain": ["UPSC", "History"]
+    },
+    {
+      "id": 3,
+      "name": "Rachna Ranade",
+      "email": "rachna@rachna.com",
+      "password": "rachna123",
+      "phone": "9896158891",
+      "gender": "female",
+      "domain": ["Economy", "Stock Market"]
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "name": "Investment Management",
+      "instructor": 1,
+      "domain": ["Finance"]
+    },
+    {
+      "id": 2,
+      "name": "Journey to the Indian Past",
+      "instructor": 2,
+      "domain": ["History", "UPSC"]
+    },
+    {
+      "id": 3,
+      "name": "UPSC: Marathon",
+      "instructor": 2,
+      "domain": ["UPSC"]
+    },
+    {
+      "id": 4,
+      "name": "Lets Us Stock Market",
+      "instructor": 3,
+      "domain": ["Stock Market"]
     }
   ]
 }

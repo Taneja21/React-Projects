@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Logo } from "./index.js";
 import "../css/Login.css";
-import Auth from "../../jsonServer-BE/authServices.js";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login as storeLogin } from "../store/features/authSlice.js";
 
-function Login() {
+function Login({ storeLogin, auth }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -15,11 +14,12 @@ function Login() {
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
+    setError("");
     e.preventDefault();
-    Auth.authenticateUser(email, password)
+    auth(email, password)
       .then((user) => {
         if (user) {
-          dispatch(storeLogin(user));
+          dispatch(storeLogin({ user }));
           navigate("/");
         } else {
           setError("Email or Password is not correct");

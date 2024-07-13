@@ -2,16 +2,28 @@ import React from "react";
 import "../css/Header.css";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../store/features/authSlice";
 
 function Header() {
-  const storeStatus = useSelector((state) => state.authentication.status);
-  console.log("status ::", storeStatus);
+  const storeStatus = useSelector((state) => state.authentication.authStatus);
+  const isInstrcutor = useSelector(
+    (state) => state.authentication.isInstrcutor
+  );
+  const isLearner = useSelector((state) => state.authentication.isLearner);
+  const userData = useSelector((state) => state.authentication.userData);
+
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
 
   const navItems = [
-    { name: "Home", route: "/", active: storeStatus },
-    { name: "Educators", route: "educators", active: storeStatus },
-    { name: "courses", route: "courses", active: storeStatus },
+    { name: "All Courses", route: "/", active: storeStatus },
+    { name: "Instructors", route: "/", active: isLearner },
+    { name: "My Learnings", route: "/", active: isLearner },
+    { name: "Schedule", route: "/", active: isInstrcutor },
   ];
   return (
     <div className="box-header">
@@ -30,24 +42,14 @@ function Header() {
             </Link>
           ) : null
         )}
-
-        {/* <Link to="/">
-          <button>Home</button>
-        </Link>
-        <Link to="educators">
-          <button>Educators</button>
-        </Link>
-        <Link to="courses">
-          <button>Courses</button>
-        </Link> */}
       </div>
       <div className="box-header-right">
-        <Link to="login">
-          <button>Login</button>
-        </Link>
-        <Link to="signup">
-          <button>SignUp</button>
-        </Link>
+        {storeStatus ? <h1>Welcome {userData.name}!</h1> : null}
+        {storeStatus ? (
+          <Link to="/">
+            <button onClick={logoutHandler}>Logout</button>
+          </Link>
+        ) : null}
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ function Header() {
   const userData = useSelector((state) => state.auth.userData);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const navItems = [
     { name: "Home", slug: "/", active: authStatus },
     { name: "All Posts", slug: "/all-posts", active: authStatus },

@@ -1,5 +1,6 @@
 import Home from "./Home";
-import Login from "./Login";
+import InstrcutorLogin from "./InstructorLogin";
+import LearnerLogin from "./LearnerLogin";
 import SignUp from "./SignUp";
 
-export { Home, Login, SignUp };
+export { Home, InstrcutorLogin, LearnerLogin, SignUp };
