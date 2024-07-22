@@ -1,17 +1,48 @@
 import React from "react";
-import "../css/Footer.css";
+import { Logo } from "./index";
+// import "../css/Footer.css";
 
 function Footer() {
   return (
-    <div className="box-footer">
-      <div className="box-footer-left">
-        <p style={{ color: "#37B7C3" }}>© 2024 WeC@re. All rights reserved.</p>
-      </div>
-      <div className="box-footer-right">
-        <button>About US</button>
-        <button>Privacy Policy</button>
-        <button>Facebook</button>
-      </div>
+    <div>
+      <footer className="d-flex flex-wrap justify-content-between align-items-center border-top">
+        <p className="col-md-4 mb-0 text-body-secondary">© 2024 Company, Inc</p>
+
+        <a
+          href="/"
+          className="col-md-4 d-flex align-items-center justify-content-center me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <Logo />
+        </a>
+
+        <ul className="nav col-md-4 justify-content-end">
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-body-secondary">
+              Home
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-body-secondary">
+              Features
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-body-secondary">
+              Pricing
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-body-secondary">
+              FAQs
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#" className="nav-link px-2 text-body-secondary">
+              About
+            </a>
+          </li>
+        </ul>
+      </footer>
     </div>
   );
 }

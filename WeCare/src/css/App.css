@@ -6,12 +6,11 @@
 }
 
 .box-layout-top {
-  flex-basis: 7.5vh;
-  background-color: #071952;
+  flex-basis: 4.5vh;
 }
 
 .box-layout-middle {
-  flex-basis: 87.5vh;
+  flex-basis: 89.5vh;
   background-color: #ebf4f6;
   display: flex;
   align-items: center;
@@ -19,6 +18,25 @@
 }
 
 .box-layout-bottom {
-  flex-basis: 5vh;
-  background-color: #071952;
+  flex-basis: 6vh;
+}
+
+.signup-box {
+  width: 50vw;
+  background-color: #d4e0e0;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-logo {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.form-label {
+  font-weight: bolder;
 }

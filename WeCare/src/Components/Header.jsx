@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Header.css";
+// import "../css/Header.css";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -26,31 +26,73 @@ function Header() {
     { name: "Schedule", route: "/", active: isInstrcutor },
   ];
   return (
-    <div className="box-header">
-      <div className="box-header-left">
-        <Link to="/">
+    <div style={{ height: "4.5vh" }}>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
           <Logo />
-        </Link>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              {navItems.map((item) =>
+                item.active ? (
+                  <li className="nav-item" key={item.name}>
+                    <Link
+                      className="nav-link"
+                      aria-current="page"
+                      to={item.route}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ) : null
+              )}
 
-        <h2 style={{ color: "#37B7C3", fontWeight: "bolder" }}>WeC@re</h2>
-      </div>
-      <div className="box-header-middle">
-        {navItems.map((item) =>
-          item.active ? (
-            <Link key={item.name} to={item.route}>
-              <button>{item.name}</button>
-            </Link>
-          ) : null
-        )}
-      </div>
-      <div className="box-header-right">
-        {storeStatus ? <h1>Welcome {userData.name}!</h1> : null}
-        {storeStatus ? (
-          <Link to="/">
-            <button onClick={logoutHandler}>Logout</button>
-          </Link>
-        ) : null}
-      </div>
+              {storeStatus ? (
+                <li className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Dropdown
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a className="dropdown-item" href="#">
+                        Something else here
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              ) : null}
+            </ul>
+            {storeStatus ? <h5> {userData.name}</h5> : null}
+            {storeStatus ? (
+              <button
+                className="btn btn-danger"
+                onClick={logoutHandler}
+                style={{ marginLeft: "15px" }}
+              >
+                Logout
+              </button>
+            ) : null}
+          </div>
+        </div>
+      </nav>
     </div>
   );
 }
