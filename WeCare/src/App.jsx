@@ -1,5 +1,5 @@
 import "./css/App.css";
-import { Header, Footer } from "./components/index";
+import { Header, Footer } from "./Components/index";
 import { Outlet } from "react-router-dom";
 
 function App() {

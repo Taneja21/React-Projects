@@ -1,5 +1,5 @@
 import React from "react";
-import { Login as Loginform } from "../components/index";
+import { Login as Loginform } from "../Components/index";
 import { learnerLogin } from "../store/features/authSlice";
 import Auth from "../../jsonServer-BE/authServices";
 
