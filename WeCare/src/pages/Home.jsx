@@ -12,6 +12,8 @@ function Index() {
   if (!storeStatus) {
     return (
       <div className="box-home">
+
+{/* Instructor */}        
         <div className="box-home-form">
           <div className="home-form-top">
             <h1>Instructor</h1>
@@ -26,13 +28,15 @@ function Index() {
             <p>
               Do not have Account?{" "}
               <span>
-                <Link to="signup" style={{ color: "red" }}>
+                <Link to="instructorSignUp" style={{ color: "red" }}>
                   Sign Up
                 </Link>
               </span>
             </p>
           </div>
         </div>
+
+{/* Learner */}   
         <div className="box-home-form">
           <div className="home-form-top">
             <h1>Learner</h1>
@@ -47,7 +51,7 @@ function Index() {
             <p>
               Do not have Account?{" "}
               <span>
-                <Link to="signup" style={{ color: "red" }}>
+                <Link to="learnerSignUp" style={{ color: "red" }}>
                   Sign Up
                 </Link>
               </span>
