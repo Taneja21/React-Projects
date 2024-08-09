@@ -4,8 +4,8 @@ import "../css/SignUp.css";
 import { useState } from "react";
 import Auth from "../../jsonServer-BE/authServices";
 import { useNavigate } from "react-router-dom";
-// import {useDispatch} from 'react-redux'
-// import {} from '../store/features/authSlice'
+import {useDispatch} from 'react-redux'
+import {instructorLogin} from '../store/features/authSlice'
 
 export default function () {
   const [name, setName] = useState("");
@@ -16,8 +16,10 @@ export default function () {
   const [password, setPassword] = useState("");
   const [cnfpassword, setCnfpassword] = useState("");
   const [pskError, setPskError] = useState("");
+  const [userError, setUserError] = useState("")
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleDomain = (e) => {
     const value = e.target.value;
@@ -41,21 +43,25 @@ export default function () {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const result = await Auth.registerInstrcutor({
-        name,
-        email,
-        phone,
-        gender,
-        domain,
-        password,
-      });
-      if (result) {
-        navigate("/");
-      } else {
-        console.log(result);
-      }
-    } catch (error) {}
+    if(pskError === ""){
+       try {
+         const user = await Auth.registerInstrcutor({
+           name,
+           email,
+           phone,
+           gender,
+           domain,
+           password,
+         });
+         if (user) {
+           dispatch(instructorLogin({user}))
+           navigate("/");
+         } else {
+           setUserError("User is already registered!");
+         }
+       } catch (error) {}
+    }
+   
 
     console.log();
   };
@@ -361,6 +367,9 @@ export default function () {
           <button type="submit" className="btn btn-primary">
             Create Account
           </button>
+          <br/>
+          <br/>
+          {userError? (<span style={{color:"red"}}>{userError}</span>) : (null)}
         </div>
       </form>
     </div>

@@ -24,16 +24,43 @@ export default class Auth {
     });
   };
 
-  static registerInstrcutor = async (user) => {
+  static registerInstrcutor = async (newUser) => {
     try {
-      const response = await axios.post(instructorURL, user);
+      const result = await axios.get(instructorURL);
+      const users = result.data;
+      const regsiteredUser = users.find((element)=>(
+        element.email === newUser.email
+      ))
+      if(regsiteredUser){
+        return false
+      }
+      const response = await axios.post(instructorURL, newUser);
       if(response){
-        return true
+        return response.data;
       }
     } catch (error) {
       console.log(error)
     }
   };
+
+  static registerLearner = async (newUser) =>{
+      try {
+        const result = await axios.get(learnerURL);
+        const users = result.data;
+        const regsiteredUser = users.find(
+          (element) => element.email === newUser.email
+        );
+        if (regsiteredUser) {
+          return false;
+        }
+        const response = await axios.post(learnerURL, newUser);
+        if (response) {     
+          return response.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+  }
 
   static authenticateLearner = async (email, password) => {
     try {
