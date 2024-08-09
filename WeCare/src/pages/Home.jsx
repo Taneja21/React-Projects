@@ -83,7 +83,7 @@ function Index() {
 
 export default Index;
 
-<div class="nm2-bg-light nm2-radius-md nm2-inner-glow nm2-shadow-sm nm2-padding-md nm2-text-center">
+{/* <div class="nm2-bg-light nm2-radius-md nm2-inner-glow nm2-shadow-sm nm2-padding-md nm2-text-center">
   <div class="nm2-max-width-xs nm2-margin-x-auto">
     <div class="nm2-margin-bottom-xs">
       <svg class="nm2-icon nm2-icon--xl" viewBox="0 0 64 64" aria-hidden="true">
@@ -135,4 +135,4 @@ export default Index;
       </p>
     </div>
   </div>
-</div>;
+</div>; */}

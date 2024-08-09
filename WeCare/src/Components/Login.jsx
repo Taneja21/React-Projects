@@ -16,19 +16,20 @@ function Login({ storeLogin, auth }) {
   const handleSubmit = async (e) => {
     setError("");
     e.preventDefault();
-    auth(email, password)
-      .then((user) => {
-        if (user) {
-          dispatch(storeLogin({ user }));
-          navigate("/");
-        } else {
-          setError("Email or Password is not correct");
-        }
-      })
-      .catch((error) => {
-        setError(error);
-      });
+     try {
+       const user = await auth(email, password);
+       if(user){
+        dispatch(storeLogin({user}))
+        navigate("/")
+       }else{
+        setError("Email or Password is not correct")
+       }
+     } catch (error) {
+      setError(error)
+     }
   };
+
+ 
   return (
     <div className="login-form-container">
       <div className="logo-container">

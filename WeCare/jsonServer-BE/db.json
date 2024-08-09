@@ -1,7 +1,7 @@
 {
   "learners": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Tushar",
       "email": "tushar@tushar.com",
       "password": "tushar123",
@@ -12,10 +12,13 @@
       "country": "India",
       "dob": "06/25/24",
       "gender": "male",
-      "coursesPurchased": [1, 2]
+      "coursesPurchased": [
+        1,
+        2
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Rajat",
       "email": "rajat@rajat.com",
       "password": "rajat123",
@@ -26,10 +29,12 @@
       "country": "India",
       "dob": "01/25/24",
       "gender": "male",
-      "coursesPurchased": [2]
+      "coursesPurchased": [
+        2
+      ]
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "Naman",
       "email": "naman@naman.com",
       "password": "naman123",
@@ -40,62 +45,95 @@
       "country": "India",
       "dob": "04/01/22",
       "gender": "male",
-      "coursesPurchased": [2, 3]
+      "coursesPurchased": [
+        2,
+        3
+      ]
     }
   ],
   "instructors": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Varnika Aneja",
       "email": "varnika@varnika.com",
       "password": "varnika123",
       "phone": "9996158881",
       "gender": "female",
-      "domain": ["Finance", "Psycology"]
+      "domain": [
+        "Finance",
+        "Psycology"
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Vikas Divyakirti",
       "email": "vikas@vikas.com",
       "password": "vikas123",
       "phone": "9996158891",
       "gender": "male",
-      "domain": ["UPSC", "History"]
+      "domain": [
+        "UPSC",
+        "History"
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Rachna Ranade",
       "email": "rachna@rachna.com",
       "password": "rachna123",
       "phone": "9896158891",
       "gender": "female",
-      "domain": ["Economy", "Stock Market"]
+      "domain": [
+        "Economy",
+        "Stock Market"
+      ]
+    },
+    {
+      "id": "6e18",
+      "name": "Manish Gupta",
+      "email": "manish@gmail.com",
+      "phone": "9908802345",
+      "gender": "Male",
+      "domain": [
+        "Health & Fitness",
+        "Personal Development"
+      ],
+      "password": "manish123"
     }
   ],
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Investment Management",
       "instructor": 1,
-      "domain": ["Finance"]
+      "domain": [
+        "Finance"
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Journey to the Indian Past",
       "instructor": 2,
-      "domain": ["History", "UPSC"]
+      "domain": [
+        "History",
+        "UPSC"
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "UPSC: Marathon",
       "instructor": 2,
-      "domain": ["UPSC"]
+      "domain": [
+        "UPSC"
+      ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Lets Us Stock Market",
       "instructor": 3,
-      "domain": ["Stock Market"]
+      "domain": [
+        "Stock Market"
+      ]
     }
   ]
 }

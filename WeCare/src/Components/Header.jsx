@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/features/authSlice";
+import {useNavigate} from 'react-router-dom'
 
 function Header() {
   const storeStatus = useSelector((state) => state.authentication.authStatus);
@@ -14,9 +15,11 @@ function Header() {
   const userData = useSelector((state) => state.authentication.userData);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const logoutHandler = () => {
     dispatch(logout());
+    navigate("/")
   };
 
   const navItems = [
@@ -26,10 +29,16 @@ function Header() {
     { name: "Schedule", route: "/", active: isInstrcutor },
   ];
   return (
+
     <div style={{ height: "4.5vh" }}>
+
+{/* My Navbar  */}
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Logo />
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               {navItems.map((item) =>
@@ -88,11 +97,12 @@ function Header() {
                 style={{ marginLeft: "15px" }}
               >
                 Logout
-              </button>
+      </button>
             ) : null}
           </div>
         </div>
       </nav>
+
     </div>
   );
 }
