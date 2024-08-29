@@ -26,3 +26,55 @@
   gap: 1.5rem;
   margin-right: 10px;
 }
+
+
+.searchbox-height{
+
+    height: 100vh;
+}
+
+.searchbox-form{
+
+    position: relative;
+}
+
+.searchbox-form .fa-search{
+
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+
+.searchbox-form span{
+
+        position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+
+}
+
+.left-pan{
+    padding-left: 7px;
+}
+
+.left-pan i{
+   
+   padding-left: 10px;
+}
+
+.searchbox-form-input{
+
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.searchbox-form-input:focus{
+
+    box-shadow: none;
+    border:none;
+}

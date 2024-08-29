@@ -14,7 +14,6 @@ function SignUp() {
 
   const singUp = async (data) => {
     setError("");
-    console.log(data);
     try {
       const session = await authService.createAccount(data);
       console.log("Session is :: ", session);
